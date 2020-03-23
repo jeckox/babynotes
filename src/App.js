@@ -1,57 +1,66 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { createMuiTheme } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/styles";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import FirstView from './components/FirstView/FirstView';
+import BabiesView from './components/BabiesView/BabiesView';
+import DashboardView from './components/DashboardView/DashboardView';
+import FoodView from './components/FoodView/FoodView';
+import PoopView from './components/PoopView/PoopView';
+import RemindersView from './components/RemindersView/RemindersView';
 
-import logo from './logo.svg';
-import './App.css';
+const theme = createMuiTheme({
+	typography: {
+		fontFamily: [
+			'Roboto',
+			'-apple-system',
+			'BlinkMacSystemFont',
+			'"Segoe UI"',
+			'"Helvetica Neue"',
+			'Arial',
+			'sans-serif',
+			'"Apple Color Emoji"',
+			'"Segoe UI Emoji"',
+			'"Segoe UI Symbol"',
+		].join(','),
+	},
+	palette: {
+		primary: {
+			// light: will be calculated from palette.primary.main,
+			main: '#4d4e7e',
+			// dark: will be calculated from palette.primary.main,
+			// contrastText: will be calculated to contrast with palette.primary.main
+		},
+		secondary:{
+			main:'#a976d4'
+		},
+		info:{
+			main:'#4e9cff'
+		},
+		success:{
+			main:'#38cc8b'
+		},
+		error:{
+			main: '#dc5d6b'
+		},
+		warning:{
+			main:'#ffc61c'
+		}
+	},
+});
 
-import { simpleAction } from './actions/simpleAction'
-
-/* 
- * mapDispatchToProps
-*/
-const mapDispatchToProps = dispatch => ({
-  simpleAction: () => dispatch(simpleAction())
-})
-
-/* 
- * mapStateToProps
-*/
-const mapStateToProps = state => ({
-  ...state
-})
-
-/**
- * @class App
- * @extends {Component}
- */
-class App extends Component {
-  /**
-   * @memberof App
-   * @summary handles button click 
-   */
-  simpleAction = (event) => {
-    this.props.simpleAction();
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <pre>
-          {
-            JSON.stringify(this.props)
-          }
-        </pre>
-        <button onClick={this.simpleAction}>Test redux action</button>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+function AppRouter() {
+	return (
+		<ThemeProvider theme={theme}>
+			<Router>
+				<Route path="/" exact component={FirstView} />
+				<Route path="/babies" exact component={BabiesView} />
+				<Route path="/dashboard" exact component={DashboardView} />
+				<Route path="/food" exact component={FoodView} />
+				<Route path="/poop" exact component={PoopView} />
+				<Route path="/reminders" exact component={RemindersView} />
+			</Router>
+		</ThemeProvider>
+	);
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default AppRouter;

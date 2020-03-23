@@ -1,0 +1,1 @@
+export const GET_BABIES_URL = 'http://localhost:8080/contacts';

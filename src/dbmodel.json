@@ -1,0 +1,61 @@
+{
+    "babies": {
+        "0": {
+            "name": "Matias Adrian",
+            "lastname": "Aburto Cuenca",
+            "birthday": "Sat Feb 15 2020",
+            "poops": ["0"],
+            "lastFood": "",
+            "lastPoop": "",
+            "food": ["0"],
+            "reminders": ["0"],
+            "idBaby": "0"
+        },
+        "1": {
+            "name": "Gerardo Adrián",
+            "lastname": "Aburto Vigueras",
+            "birthday": "Wed Dic 24 1986",
+            "poops": [],
+            "lastFood": "",
+            "lastPoop": "",
+            "food": [],
+            "reminders": [],
+            "idBaby": "1"
+        },
+        "2": {
+            "name": "America Daniela",
+            "lastname": "Cuenca Villegas",
+            "birthday": "Thu Jul 24 1997",
+            "poops": [],
+            "lastFood": "",
+            "lastPoop": "",
+            "food": [],
+            "reminders": [],
+            "idBaby": "2"
+        }
+    },
+    "poops": {
+        "0": {
+            "date": "Mon Mar 16 2020 13:55:46 GMT-0600 (Central Standard Time)",
+            "withPee": true,
+            "baby": "0",
+            "idPoop": "0"
+        }
+    },
+    "food": {
+        "0": {
+            "date": "Mon Mar 16 2020 15:06:38 GMT-0600 (Central Standard Time)",
+            "time": "3",
+            "baby": "0",
+            "idFood": "0"
+        }
+    },
+    "reminders": {
+        "0": {
+            "date": "Mon Mar 16 2020 16:55:46 GMT-0600 (Central Standard Time)",
+            "message": "time to eat",
+            "baby": "0",
+            "idReminder": "0"
+        }
+    }
+}
