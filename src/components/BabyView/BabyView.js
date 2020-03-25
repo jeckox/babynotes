@@ -1,11 +1,8 @@
 import React,{Fragment} from 'react';
-import { withRouter,Redirect } from "react-router-dom";
 import {compose} from 'redux';
 import { connect } from 'react-redux';
-import LayoutTabs from './LayoutTabs';
-/* 
- * mapDispatchToProps
-*/
+import { withRouter } from "react-router-dom";
+
 const mapDispatchToProps = dispatch => ({
   
 })
@@ -18,24 +15,19 @@ const mapStateToProps = (state) => {
 		actualBaby: state.babiesReducer.allBabies[state.babiesReducer.actualBaby]
 	}
 };
-class DashboardView extends React.Component {
+
+class BabyView extends React.Component {
     render() {
-        const {actualBaby} = this.props;
+         const {actualBaby} = this.props;
         return(
             <Fragment>
-                { (actualBaby) && 
-                <Fragment>
-                    <LayoutTabs actualBaby={actualBaby} />
-                </Fragment> }
-                {
-                    (!actualBaby) &&
-                    <Redirect to="/babies" />
-                }
+                <h1>{actualBaby.name}</h1>
             </Fragment>
         );
     }
 }
+
 export default compose(
     withRouter,
     connect(mapStateToProps, mapDispatchToProps)
-)(DashboardView);
+)(BabyView);

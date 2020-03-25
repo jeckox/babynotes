@@ -5,9 +5,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import FirstView from './components/FirstView/FirstView';
 import BabiesView from './components/BabiesView/BabiesView';
 import DashboardView from './components/DashboardView/DashboardView';
-import FoodView from './components/FoodView/FoodView';
-import PoopView from './components/PoopView/PoopView';
-import RemindersView from './components/RemindersView/RemindersView';
 
 const theme = createMuiTheme({
 	typography: {
@@ -56,9 +53,6 @@ function AppRouter() {
 				<Route path="/" exact component={FirstView} />
 				<Route path="/babies" exact component={BabiesView} />
 				<Route path="/dashboard" exact component={DashboardView} />
-				<Route path="/food" exact component={FoodView} />
-				<Route path="/poop" exact component={PoopView} />
-				<Route path="/reminders" exact component={RemindersView} />
 			</Router>
 		</ThemeProvider>
 	);
