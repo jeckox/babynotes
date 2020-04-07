@@ -37,7 +37,7 @@
     "poops": {
         "0": {
             "date": "Mon Mar 16 2020 13:55:46 GMT-0600 (Central Standard Time)",
-            "withPee": true,
+            "poopOrPee": "poop",
             "baby": "0",
             "idPoop": "0"
         }
