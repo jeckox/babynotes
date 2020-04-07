@@ -47,50 +47,39 @@ const LayoutTabs = ({actualBaby}) =>{
 	}, []);
 	return (
 		<Fragment>
-			<CssBaseline />
-			<Container component="main" className={classes.container}>
-				<Paper square className={classes.tab}>
-					<Tabs
-						value={value}
-						onChange={handleChange}
-						variant="fullWidth"
-						indicatorColor="secondary"
-						textColor="secondary"
-						aria-label="icon label tabs example"
-					>
-						<Tab 	icon={<Icon className="fa fa-user-circle" /> } 
-								label={(!matches ? actualBaby.name : null)} 
-						/>
-						<Tab icon={<Icon className="fa fa-poo" /> } label={(!matches ? 'Poops' : null)}  />
-						<Tab icon={<Icon className="fa fa-utensils" /> } label={(!matches ? 'Food' : null)} />
-						<Tab icon={<Icon className="fa fa-pills" /> } label={(!matches ? 'Medicine' : null)} />
-						<Tab icon={<AccessAlarmsIcon />} label={(!matches ? 'Reminders' : null)} />
-					</Tabs>
-				</Paper>
-				<Grid container>
+			<Grid container>
+					<Grid item xs={12} sm={12} lg={12}>
+						<Paper square className={classes.tab}>
+							<Tabs
+								value={value}
+								onChange={handleChange}
+								variant="fullWidth"
+								indicatorColor="secondary"
+								textColor="secondary"
+								aria-label="icon label tabs example"
+							>
+								<Tab 	icon={<Icon className="fa fa-user-circle" /> } 
+										label={(!matches ? actualBaby.name : null)} 
+								/>
+								<Tab icon={<Icon className="fa fa-poo" /> } label={(!matches ? 'Poops' : null)}  />
+								<Tab icon={<Icon className="fa fa-utensils" /> } label={(!matches ? 'Food' : null)} />
+								<Tab icon={<Icon className="fa fa-pills" /> } label={(!matches ? 'Medicine' : null)} />
+								<Tab icon={<AccessAlarmsIcon />} label={(!matches ? 'Reminders' : null)} />
+							</Tabs>
+						</Paper>
+					</Grid>
 					<Grid item xs={12} sm={12} lg={12}>
 							<SwipeableViews axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
 	   										index={value}
 											onChangeIndex={handleChange}>
-								<Paper elevation={1} index={0}>
-									<BabyView />
-								</Paper>
-								<Paper elevation={1} index={1}>
-									<PoopView/>
-								</Paper>
-								<Paper elevation={1} index={2}>
-									<FoodView/>
-								</Paper>
-								<Paper elevation={1} index={3}>
-									<MedicineView/>
-								</Paper>
-								<Paper elevation={1} index={4}>
-									<RemindersView/>
-								</Paper>
+									<BabyView  index={0}/>
+									<PoopView index={1}/>
+									<FoodView index={2}/>
+									<MedicineView index={3}/>
+									<RemindersView index={4}/>
 							</SwipeableViews>
 					</Grid>
 				</Grid>
-			</Container>
 		</Fragment>
 	);
 }

@@ -1,22 +1,6 @@
-/* 
-  src/actions/simpleAction.js
-*/
 import * as A from  './../constants/babiesActions';
 import {babyRef} from '../firebase';
 
-
-
-//   export const newFood = () => async dispatch => {
-// 	const dates = new Date();
-// 	foodRef.push().set({
-// 		"baby" : "0",
-// 		"date": dates.toString()
-// 	});
-// 	console.log(foodRef.toString());
-//   };
-//   export const completeToDo = completeToDo => async dispatch => {
-// 	babyRef.child(completeToDo).remove();
-//   };
 export const fetchBabies = () => async dispatch => {
 	babyRef.on("value", snapshot => {
 		dispatch({
