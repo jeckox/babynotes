@@ -1,20 +1,18 @@
 import React,{Fragment} from 'react';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles, useTheme  } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Icon from '@material-ui/core/Icon';
 import { loadCSS } from 'fg-loadcss';
-import AccessAlarmsIcon from '@material-ui/icons/AccessAlarms';
+// import AccessAlarmsIcon from '@material-ui/icons/AccessAlarms';
 import FoodView from './../FoodView/FoodView';
 import PoopView from './../PoopView/PoopView';
-import RemindersView from './../RemindersView/RemindersView';
+// import RemindersView from './../RemindersView/RemindersView';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import BabyView from './../BabyView/BabyView';
-import MedicineView from './../MedicineView/MedicineView';
+// import MedicineView from './../MedicineView/MedicineView';
 import SwipeableViews from 'react-swipeable-views';
 
 
@@ -63,8 +61,8 @@ const LayoutTabs = ({actualBaby}) =>{
 								/>
 								<Tab icon={<Icon className="fa fa-poo" /> } label={(!matches ? 'Poops' : null)}  />
 								<Tab icon={<Icon className="fa fa-utensils" /> } label={(!matches ? 'Food' : null)} />
-								<Tab icon={<Icon className="fa fa-pills" /> } label={(!matches ? 'Medicine' : null)} />
-								<Tab icon={<AccessAlarmsIcon />} label={(!matches ? 'Reminders' : null)} />
+								{/* <Tab icon={<Icon className="fa fa-pills" /> } label={(!matches ? 'Medicine' : null)} />
+								<Tab icon={<AccessAlarmsIcon />} label={(!matches ? 'Reminders' : null)} /> */}
 							</Tabs>
 						</Paper>
 					</Grid>
@@ -75,8 +73,8 @@ const LayoutTabs = ({actualBaby}) =>{
 									<BabyView  index={0}/>
 									<PoopView index={1}/>
 									<FoodView index={2}/>
-									<MedicineView index={3}/>
-									<RemindersView index={4}/>
+									{/* <MedicineView index={3}/>
+									<RemindersView index={4}/> */}
 							</SwipeableViews>
 					</Grid>
 				</Grid>

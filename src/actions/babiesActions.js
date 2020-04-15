@@ -40,4 +40,17 @@ export const selectBaby = ( theBaby ) => dispatch =>{
 		type: A.SELECT_BABY,
 		payload: theBaby
 	});
-}
+};
+export const updateLastFood = ( actualBaby, lastFood ) => dispatch =>{
+	babyRef.child(actualBaby).update({'lastFood': lastFood});
+	dispatch({
+		type: A.UPDATE_BABY_LASTFOOD
+	});
+};
+
+export const updateLastPoop = ( actualBaby, lastPoop ) => dispatch =>{
+	babyRef.child(actualBaby).update({'lastPoop': lastPoop});
+	dispatch({
+		type: A.UPDATE_BABY_LASTPOOP
+	});
+};
