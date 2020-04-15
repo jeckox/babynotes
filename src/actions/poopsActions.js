@@ -1,5 +1,6 @@
 import * as A from  './../constants/poopsActions';
 import {poopRef} from '../firebase';
+import {updateLastPoop} from '../actions/babiesActions';
 
 export const fetchPoops = ( id ) => async dispatch => {
 	poopRef.orderByChild("baby").equalTo(id).on("value", function(snapshot) {
@@ -18,10 +19,13 @@ export const newPoop = ( info ) => async dispatch => {
 		baby,
 		"idPoop": refPoop.key
 	})
-	.then(function() {
+	.then(() => {
 		dispatch({
 			type: A.NEW_POOP_SUCCESS
 		});
+	})
+	.then(()=>{
+		dispatch(updateLastPoop(baby,date.toString()));
 	})
 	.catch(function(error) {
 		dispatch({

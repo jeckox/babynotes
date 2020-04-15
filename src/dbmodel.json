@@ -45,7 +45,7 @@
     "food": {
         "0": {
             "date": "Mon Mar 16 2020 15:06:38 GMT-0600 (Central Standard Time)",
-            "time": "3",
+            "quantity": "3",
             "baby": "0",
             "idFood": "0"
         }

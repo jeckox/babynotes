@@ -17,7 +17,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import BabyForm from './../Commons/Form';
-import {validate, formFields} from './../Forms/PoopForm.js';
+import {validate, formFields} from './../Forms/FoodForm.js';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -49,10 +49,10 @@ const useStyles = makeStyles(theme => ({
 		color:theme.palette.error.contrastText
 	}
 }));
-const LayoutPoops = ({
-	  poops,
-	  allPoops,
-	  addPoop
+const LayoutFood = ({
+	  foods,
+	  allFoods,
+	  addFood
 	}) => {
 	const classes = useStyles();
 	const [open, setOpen] = React.useState(false);
@@ -63,8 +63,8 @@ const LayoutPoops = ({
 	const handleClose = () => {
 		setOpen(false);
 	};
-	const savePoop = ( babe ) => {
-		addPoop(babe);
+	const saveFood = ( babe ) => {
+		addFood(babe);
 		setOpen(false);
 	}
 	return (
@@ -75,17 +75,17 @@ const LayoutPoops = ({
 				<Table aria-label="simple table">
 					<TableHead>
 					<TableRow>
-						<TableCell>Poop or Pee</TableCell>
+						<TableCell>Quantity</TableCell>
 						<TableCell align="right">Time</TableCell>
 					</TableRow>
 					</TableHead>
 					<TableBody>
-					{poops.map(poop => (
-						<TableRow key={allPoops[poop].idPoop}>
+					{foods.map(food => (
+						<TableRow key={allFoods[food].idFood}>
 						<TableCell component="th" scope="row">
-							{allPoops[poop].poopOrPee}
+							{allFoods[food].quantity}
 						</TableCell>
-						<TableCell align="right">{allPoops[poop].date}</TableCell>
+						<TableCell align="right">{allFoods[food].date}</TableCell>
 						</TableRow>
 					))}
 					</TableBody>
@@ -98,7 +98,7 @@ const LayoutPoops = ({
 					<Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
 						<DialogTitle id="form-dialog-title">Add New Poop</DialogTitle>
 						<DialogContent>
-							<BabyForm onSubmit={savePoop} validate={validate} formFields={formFields} />
+							<BabyForm onSubmit={saveFood} validate={validate} formFields={formFields} />
 						</DialogContent>
 					</Dialog>
 				</Paper>
@@ -106,4 +106,4 @@ const LayoutPoops = ({
 		</Fragment>
 	);
 };
-export default LayoutPoops;
+export default LayoutFood;

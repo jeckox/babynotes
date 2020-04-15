@@ -14,7 +14,8 @@ import Dialog from '@material-ui/core/Dialog';
 import Avatar from '@material-ui/core/Avatar';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import NewBabyForm from './NewBabyForm';
+import {validate, formFields} from './../Forms/BabyForm';
+import BabyForm from './../Commons/Form';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -42,9 +43,9 @@ const useStyles = makeStyles(theme => ({
 	icon:{
 		color:theme.palette.error.contrastText
 	}
-  }));
+}));
 
-  const LayoutBabies = ({
+const LayoutBabies = ({
 	  babies,
 	  allBabies,
 	  theBaby,
@@ -68,7 +69,7 @@ const useStyles = makeStyles(theme => ({
 		<Fragment>
 			<CssBaseline />
 			<Container component="main" className={classes.container}>
-                <Grid container spacing={2}>
+				<Grid container spacing={2}>
 					{
 						babies.map((element) => <Grid item xs={6} lg={3} key={allBabies[element].idBaby}>
 						<Card className={theBaby && (allBabies[element].idBaby === theBaby.idBaby ? classes.activeBaby : null)}>
@@ -84,16 +85,16 @@ const useStyles = makeStyles(theme => ({
 								</CardContent>
 							</CardActionArea>
 						</Card>
-                    </Grid>)
+					</Grid>)
 					}
-                </Grid>
+				</Grid>
 				<Fab color="primary" aria-label="add" onClick={handleClickOpen} className={classes.add}>
 					<AddIcon />
 				</Fab>
 				<Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
 					<DialogTitle id="form-dialog-title">Add New Baby</DialogTitle>
 					<DialogContent>
-						<NewBabyForm saveBaby={saveBaby}/>
+						<BabyForm onSubmit={saveBaby} validate={validate} formFields={formFields}/>
 					</DialogContent>
 				</Dialog>
 			</Container>
