@@ -4,57 +4,74 @@
             "name": "Matias Adrian",
             "lastname": "Aburto Cuenca",
             "birthday": "Sat Feb 15 2020",
-            "poops": ["0"],
             "lastFood": "",
             "lastPoop": "",
+            "lastExtraction": "",
+            "extractionlapse": "3",
             "food": ["0"],
+            "poops": ["0"],
             "reminders": ["0"],
+            "extractions": ["0"],
             "idBaby": "0"
         },
         "1": {
             "name": "Gerardo Adrián",
             "lastname": "Aburto Vigueras",
             "birthday": "Wed Dic 24 1986",
-            "poops": [],
             "lastFood": "",
             "lastPoop": "",
+            "lastExtraction": "",
+            "extractionlapse": "3",
             "food": [],
+            "poops": [],
             "reminders": [],
+            "extractions": [],
             "idBaby": "1"
         },
         "2": {
             "name": "America Daniela",
             "lastname": "Cuenca Villegas",
             "birthday": "Thu Jul 24 1997",
-            "poops": [],
             "lastFood": "",
             "lastPoop": "",
+            "lastExtraction": "",
+            "extractionlapse": "3",
             "food": [],
+            "poops": [],
             "reminders": [],
+            "extractions": [],
             "idBaby": "2"
         }
     },
     "poops": {
         "0": {
             "date": "Mon Mar 16 2020 13:55:46 GMT-0600 (Central Standard Time)",
-            "poopOrPee": "poop",
             "baby": "0",
-            "idPoop": "0"
+            "idPoop": "0",
+            "poopOrPee": "poop"
         }
     },
     "food": {
         "0": {
             "date": "Mon Mar 16 2020 15:06:38 GMT-0600 (Central Standard Time)",
-            "quantity": "3",
             "baby": "0",
-            "idFood": "0"
+            "idFood": "0",
+            "quantity": "3"
+        }
+    },
+    "extractions": {
+        "0": {
+            "date": "Mon Mar 16 2020 15:06:38 GMT-0600 (Central Standard Time)",
+            "baby": "0",
+            "quantity": "3",
+            "idExtraction": "0"
         }
     },
     "reminders": {
         "0": {
+            "baby": "0",
             "date": "Mon Mar 16 2020 16:55:46 GMT-0600 (Central Standard Time)",
             "message": "time to eat",
-            "baby": "0",
             "idReminder": "0"
         }
     }

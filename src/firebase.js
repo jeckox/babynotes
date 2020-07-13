@@ -13,4 +13,5 @@ const databaseRef = firebase.database().ref();
 export const babyRef = databaseRef.child("babies");
 export const foodRef = databaseRef.child("food");
 export const poopRef = databaseRef.child("poops");
+export const extractionRef = databaseRef.child("extraction");
 export const remindersRef = databaseRef.child("reminders");

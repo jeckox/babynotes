@@ -9,20 +9,23 @@ import DateFnsUtils from '@date-io/date-fns';
 export const validate = values => {
   const errors = {};
   if (!values.name) {
-	errors.name = 'Required';
+	errors.name = 'Please fill your name';
   }
   if (!values.lastname) {
-	errors.lastName = 'Required';
+	errors.lastname = 'Please fill your lastname';
+  }
+  if (!values.extractionlapse) {
+	errors.extractionlapse = 'Please fill your extraction lapse, like 3';
   }
   if (!values.birthday) {
-	errors.birthday = 'Required';
+	errors.birthday = 'Please fill your birthday';
   }
   return errors;
 };
 
 export const formFields = [
   {
-	size: 6,
+	size: 4,
 	field: (
 	  <TextField
 		label="First Name"
@@ -33,11 +36,22 @@ export const formFields = [
 	),
   },
   {
-	size: 6,
+	size: 4,
 	field: (
 	  <TextField
 		label="Last Name"
 		name="lastname"
+		margin="none"
+		required={true}
+	  />
+	),
+  },
+  {
+	size: 4,
+	field: (
+	  <TextField
+		label="Extraction Time"
+		name="extractionlapse"
 		margin="none"
 		required={true}
 	  />

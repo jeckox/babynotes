@@ -2,6 +2,7 @@ import React,{Fragment} from 'react';
 import {compose} from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
+import LayoutBaby from './LayoutBaby';
 
 const mapDispatchToProps = dispatch => ({
   
@@ -21,7 +22,7 @@ class BabyView extends React.Component {
          const {actualBaby} = this.props;
         return(
             <Fragment>
-                <h1>{actualBaby.name}</h1>
+                <LayoutBaby theBaby={actualBaby}></LayoutBaby>
             </Fragment>
         );
     }
