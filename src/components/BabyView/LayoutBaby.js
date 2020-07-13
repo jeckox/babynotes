@@ -50,25 +50,10 @@ const useStyles = makeStyles(theme => ({
 		color:theme.palette.error.contrastText
 	}
 }));
-const LayoutFood = ({
-	  foods,
-	  allFoods,
-	  theBaby,
-	  addFood
+const LayoutBaby = ({
+	  theBaby
 	}) => {
 	const classes = useStyles();
-	const [open, setOpen] = React.useState(false);
-	const handleClickOpen = () => {
-		setOpen(true);
-	};
-
-	const handleClose = () => {
-		setOpen(false);
-	};
-	const saveFood = ( babe ) => {
-		addFood(babe);
-		setOpen(false);
-	}
 	const convertDate = (dateToTransform, plus = 0) => {
 		const date = new Date(dateToTransform);
 		const weekDays = [
@@ -93,34 +78,33 @@ const LayoutFood = ({
 			<CssBaseline />
 			<Container component="main" className={classes.container2}>
 				<Grid container  spacing={2}>
-					{foods.map(food => (
-							<Grid item className={classes.centerEl} xs={12} lg={7} key={allFoods[food].idFood}>
-								<Card className={classes.cardEl}>
-									<CardContent>
-										<Typography variant="h5" component="h2">
-											{theBaby.name} comío {allFoods[food].quantity} onzas
-										</Typography>
-										<Typography color="textSecondary">
-											{allFoods[food].date && convertDate(allFoods[food].date)}
-										</Typography>
-									</CardContent>
-								</Card>
-							</Grid>
-					))}
+                    <Grid item  xs={12} lg={4}>
+                        <Card >
+                        	<CardContent>
+                        		<Typography variant="h5" component="h2">
+                                    La última comida de {theBaby.name} fue de {theBaby.lastFood.quantity} onzas
+                        		</Typography>
+                        		<Typography color="textSecondary">
+                        			{theBaby.lastFood.date && convertDate(theBaby.lastFood.date)}
+                        		</Typography>
+                        	</CardContent>
+                        </Card>
+					</Grid>
+                    <Grid item  xs={12} lg={4}>
+                        <Card >
+                        	<CardContent>
+                        		<Typography variant="h5" component="h2">
+                        			La última extracción de {theBaby.name} fue de {theBaby.lastExtraction.quantity} onzas
+                        		</Typography>
+                        		<Typography color="textSecondary">
+                        			{theBaby.lastExtraction.date && convertDate(theBaby.lastExtraction.date)}
+                        		</Typography>
+                        	</CardContent>
+                        </Card>
+					</Grid>
 				</Grid>
-				<Paper>
-					<Fab color="primary" aria-label="add" onClick={handleClickOpen} className={classes.add}>
-						<AddIcon />
-					</Fab>
-					<Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-						<DialogTitle id="form-dialog-title">Add New Poop</DialogTitle>
-						<DialogContent>
-							<BabyForm onSubmit={saveFood} validate={validate} formFields={formFields} />
-						</DialogContent>
-					</Dialog>
-				</Paper>
 			</Container>
 		</Fragment>
 	);
 };
-export default LayoutFood;
+export default LayoutBaby;

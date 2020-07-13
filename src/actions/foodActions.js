@@ -13,17 +13,18 @@ export const fetchFoods = ( id ) => async dispatch => {
 export const newFood = ( info ) => async dispatch => {
 	const {date, quantity, baby } = info;
 	const refFood = foodRef.push();
-	refFood.set({
+	const lastFood = {
 		date : date.toString(),
 		quantity,
 		baby,
 		"idFood": refFood.key
-	})
+	};
+	refFood.set(lastFood)
 	.then(function() {
 		dispatch({
 			type: A.NEW_FOOD_SUCCESS
 		});
-		dispatch(updateLastFood(baby,date.toString()));
+		dispatch(updateLastFood(lastFood));
 	})
 	.catch(function(error) {
 		dispatch({

@@ -13,19 +13,20 @@ export const fetchPoops = ( id ) => async dispatch => {
 export const newPoop = ( info ) => async dispatch => {
 	const {date, poopOrPee, baby } = info;
 	const refPoop = poopRef.push();
-	refPoop.set({
+	const lastPoop = {
 		date : date.toString(),
 		poopOrPee,
 		baby,
 		"idPoop": refPoop.key
-	})
+	};
+	refPoop.set(lastPoop)
 	.then(() => {
 		dispatch({
 			type: A.NEW_POOP_SUCCESS
 		});
 	})
 	.then(()=>{
-		dispatch(updateLastPoop(baby,date.toString()));
+		dispatch(updateLastPoop(lastPoop));
 	})
 	.catch(function(error) {
 		dispatch({
